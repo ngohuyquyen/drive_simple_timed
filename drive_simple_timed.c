@@ -54,7 +54,7 @@ int main(){
 
 
 void turn_right(float duty){
-        // Go straight for 1s and stop
+        // Turn right for 0.5s and stop
         rc_motor_set(1, duty);
         rc_motor_set(2, (float) -0.91*duty);
         rc_nanosleep(69E7);
@@ -63,7 +63,7 @@ void turn_right(float duty){
 }
 
 void go_straight(float duty){
-        // Turn left for 0.5s and stop
+        // Go straight for 1s and stop
         rc_motor_set(1, duty);
         rc_motor_set(2, (float) 0.91*duty);
         rc_nanosleep(4E9);
