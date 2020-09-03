@@ -38,21 +38,25 @@ void turn_right(float duty);
 
 
 int main(){
+	// Duty cycle
         float duty = 0.25;
         
+	// Motor initialization
 	rc_motor_init();
-
+	
+	// Square loop (4 time going straights and 4 times turning left/right)
         for(int i = 0; i < 4; i++){
                 go_straight(duty);
                 turn_left(duty);
         }
         
+	// Clean up motors (put all motots in 0 throttle state)
         rc_motor_cleanup();
         
 }
 
 
-
+// Since my left wheel is spinning slower than my right wheel does, I proportionate the duty cycle accordingly to make them even
 void turn_right(float duty){
         // Turn right for 0.5s and stop
         rc_motor_set(1, duty);
